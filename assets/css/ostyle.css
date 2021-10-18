@@ -1,0 +1,235 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+::selection{
+background-color: white;
+color: black;
+}
+ul,ol{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+.orxan{
+    height: 100%;
+    align-items: center;
+}
+/* Characters */
+body section#characters {
+  background-color: #dcdde1;
+  /* padding: 100px 0; */
+}
+
+body section#characters .heading {
+  margin-bottom: 100px;
+}
+
+/* body section#characters .cards {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+} */
+
+body section#characters .cards .card {
+  border-radius: 1rem;
+  background-color: transparent;
+  border: none;
+  /* width: 350px; */
+  transition: all 0.2s linear;
+}
+
+body section#characters .cards .card .card-header {
+  padding: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  background-color: transparent;
+  border: none;
+}
+
+body section#characters .cards .card .card-header .circle-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: #222f3e;
+  transition: transform 0.2s linear;
+  padding: 20px;
+  overflow: hidden;
+}
+
+body section#characters .cards .card .card-header .circle-image a img {
+  transition: transform 0.2s linear;
+  width: 100%;
+  height: 100%;
+}
+
+body section#characters .cards .card h1 {
+  text-align: center;
+  line-height: 2;
+}
+
+body section#characters .cards .card .card-body {
+  padding: 0 25px;
+}
+
+body section#characters .cards .card .card-body p {
+  text-align: center;
+  line-height: 1.5;
+  font-size: 19px;
+}
+
+body section#characters .cards .card .card-footer {
+  text-align: center;
+  padding: 25px 0;
+  display: flex;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+}
+
+body section#characters .cards .card .card-footer a {
+  color: black;
+  font-size: 20px;
+  transition: all 0.2s linear;
+  display: flex;
+  padding: 5px 15px;
+  margin-top: 20px;
+}
+
+body section#characters .cards .card:nth-of-type(1) {
+  margin-left: 0;
+}
+
+body section#characters .cards .card:nth-of-type(2) {
+  transform: translateY(-50px);
+}
+
+body section#characters .cards .card:nth-of-type(2) .circle-image {
+  width: 200px;
+  height: 200px;
+}
+
+body section#characters .cards .card:nth-of-type(2) p {
+  font-size: 23px;
+}
+
+body section#characters .cards .card:nth-of-type(3) {
+  margin-right: 0;
+}
+
+body section#characters .cards .card:hover {
+  box-shadow: 0 0 20px black;
+  background-color: #222f3e;
+  color: #dcdde1;
+}
+
+body section#characters .cards .card:hover .card-header {
+  box-shadow: 0 0 20px #dcdde1;
+  background-color: #dcdde1;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+body section#characters .cards .card:hover .card-header .circle-image {
+  background-color: #dcdde1;
+  border-radius: 0;
+}
+
+body section#characters .cards .card:hover .card-header .circle-image img {
+  transform: scale(1.5);
+}
+
+body section#characters .cards .card:hover h1 {
+  color: #1dd1a1;
+}
+
+body section#characters .cards .card:hover .card-footer a {
+  border-radius: 50rem;
+  border: 1px solid black;
+  color: #fff;
+}
+
+body section#characters .cards .card:hover .card-footer a:hover {
+  background-color: #fff;
+  color: #222f3e;
+  transform: scale(1.2);
+  box-shadow: 0 0 20px 10px #1dd1a1;
+  justify-content: center;
+}
+
+
+/* footer */
+
+body footer {
+    background-color: #222f3e;
+  }
+    
+  body footer .container .social-networks {
+    padding: 30px 0;
+  }
+  
+  body footer .container .social-networks nav ul.social-list {
+    display: flex;
+  }
+  
+  body footer .container .social-networks nav ul.social-list li {
+    padding: 0 10px;
+  }
+  
+  body footer .container .social-networks nav ul.social-list li a {
+    width: 35px;
+    height: 35px;
+    border-radius: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1dd1a1;
+    color: #dcdde1;
+    transition: all 0.2s linear;
+  }
+  
+  body footer .container .social-networks nav ul.social-list li a:hover {
+    background-color: #dcdde1;
+    color: #1dd1a1;
+    transform: scale(1.2);
+    box-shadow: 0 0 20px 2px #1dd1a1;
+  }
+  
+  body footer .container .social-networks p {
+    text-align: center;
+    color: #fff;
+  }
+  
+  body footer .container ul {
+    padding: 25px;
+  }
+  
+  body footer .container ul h3 {
+    color: #1dd1a1;
+    margin-bottom: 20px;
+  }
+  
+  body footer .container ul li {
+    margin: 10px 0;
+  }
+  
+  body footer .container ul li a {
+    color: #fff;
+    font-size: 20px;
+    transition: all 0.2s linear;
+    display: flex;
+    padding: 5px 15px;
+  }
+  
+  body footer .container ul li a:hover {
+    background-color: #fff;
+    color: #222f3e;
+    transform: scale(1.2);
+    box-shadow: 0 0 20px 10px #1dd1a1;
+    border-radius: 50rem;
+    justify-content: center;
+  }
