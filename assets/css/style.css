@@ -186,6 +186,9 @@ section#characters {
         .cover:hover > .comics__back img {
           opacity: 1; }
 
+.item {
+  height: 300px; }
+
 section#current {
   background-color: black;
   position: relative;
