@@ -13,6 +13,34 @@ ul, ol {
 a {
   text-decoration: none; }
 
+.cover__btn, .volume__btn {
+  text-align: center;
+  position: relative;
+  padding: 10px 20px;
+  font-size: 25px;
+  font-weight: 600;
+  color: #000;
+  transition: color 0.4s linear;
+  overflow: hidden;
+  border-radius: 1rem;
+  border: 1px solid #45f3ff; }
+  .cover__btn::after, .volume__btn::after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 0;
+    left: 0;
+    top: 0;
+    background-image: linear-gradient(135deg, black, #ff0, blue);
+    background-color: black;
+    z-index: -1;
+    transition: width 0.4s linear; }
+  .cover__btn:hover, .volume__btn:hover {
+    color: #45f3ff;
+    border: none; }
+    .cover__btn:hover::after, .volume__btn:hover::after {
+      width: 100%; }
+
 .comics-types {
   height: 100%;
   align-items: center; }
@@ -117,6 +145,132 @@ section#characters {
       transform: scale(1.2);
       box-shadow: 0 0 20px 10px #1dd1a1;
       justify-content: center; }
+
+.cover {
+  width: 250px;
+  height: 400px;
+  background: #0198dd;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  perspective: 1200px;
+  transition: all 0.3s linear; }
+  .cover > .comics {
+    width: 250px;
+    height: 100%;
+    position: absolute;
+    background-color: royalblue;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform-style: preserve-3d;
+    transform-origin: left;
+    transition: all 0.3s linear;
+    z-index: 1; }
+    .cover > .comics > figure {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      display: block; }
+    .cover > .comics__back img {
+      transition: all 0.3s linear;
+      opacity: 0; }
+  .cover:hover {
+    transform: translate(5%, -50%) scale(1.1); }
+    .cover:hover > .comics {
+      transform: rotateY(-180deg); }
+      .cover:hover > .comics__back {
+        transform: rotateY(-180deg); }
+        .cover:hover > .comics__back img {
+          opacity: 1; }
+
+section#current {
+  background-color: black;
+  position: relative;
+  padding: 3rem 0; }
+  section#current .heading {
+    background-color: #45f3ff;
+    padding: 10px;
+    color: white;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 30px;
+    position: absolute;
+    top: 0;
+    transform: translateY(-50%); }
+  section#current .comic-box {
+    padding: 1rem;
+    cursor: pointer;
+    display: inline-block; }
+    section#current .comic-box__body {
+      width: 175px;
+      height: 175px; }
+
+.volume {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  .volume__body {
+    width: 250px;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+    display: block; }
+    .volume__body:hover img {
+      transition: all 0.4s linear; }
+    .volume__body:hover img:nth-child(1) {
+      opacity: 0; }
+    .volume__body:hover img:nth-child(2) {
+      opacity: 1; }
+  .volume__footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+  .volume img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 0.4s linear; }
+  .volume img:nth-child(1) {
+    opacity: 1; }
+  .volume img:nth-child(2) {
+    opacity: 0; }
+
+.cube-container {
+  width: 400px;
+  height: 500px;
+  margin: 100px auto; }
+  .cube-container .cube {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    position: relative;
+    transform: translateZ(-200px);
+    transition: transform 1s; }
+    .cube-container .cube:hover {
+      transform: rotateY(-90deg) translateZ(0); }
+    .cube-container .cube__face {
+      position: absolute;
+      width: 400px;
+      height: 500px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center; }
+      .cube-container .cube__face--front {
+        transform: rotateY(0deg) translateZ(200px); }
+      .cube-container .cube__face--right {
+        transform: rotateY(90deg) translateZ(200px); }
+      .cube-container .cube__face--left {
+        transform: rotateY(-90deg) translateZ(200px); }
+      .cube-container .cube__face--back {
+        transform: rotateY(180deg) translateZ(200px); }
+      .cube-container .cube__face--top {
+        transform: rotateX(90deg) translateZ(200px); }
+      .cube-container .cube__face--bottom {
+        transform: rotateX(-90deg) translateZ(200px); }
 
 footer {
   background-color: #222f3e; }
