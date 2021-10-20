@@ -13,9 +13,10 @@ ul, ol {
 a {
   text-decoration: none; }
 
-.cover__btn, .volume__btn {
+.cover__btn, .volume__btn, section#similar .item .similar-comic__btn {
   text-align: center;
   position: relative;
+  display: inline-block;
   padding: 10px 20px;
   font-size: 25px;
   font-weight: 600;
@@ -23,22 +24,24 @@ a {
   transition: color 0.4s linear;
   overflow: hidden;
   border-radius: 1rem;
-  border: 1px solid #45f3ff; }
-  .cover__btn::after, .volume__btn::after {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%); }
+  .cover__btn::after, .volume__btn::after, section#similar .item .similar-comic__btn::after {
     content: "";
     position: absolute;
     height: 100%;
     width: 0;
     left: 0;
     top: 0;
-    background-image: linear-gradient(135deg, black, #ff0, blue);
+    transform: skew(45deg);
     background-color: black;
     z-index: -1;
     transition: width 0.4s linear; }
-  .cover__btn:hover, .volume__btn:hover {
+  .cover__btn:hover, .volume__btn:hover, section#similar .item .similar-comic__btn:hover {
     color: #45f3ff;
     border: none; }
-    .cover__btn:hover::after, .volume__btn:hover::after {
+    .cover__btn:hover::after, .volume__btn:hover::after, section#similar .item .similar-comic__btn:hover::after {
       width: 100%; }
 
 .comics-types {
@@ -186,9 +189,6 @@ section#characters {
         .cover:hover > .comics__back img {
           opacity: 1; }
 
-.item {
-  height: 300px; }
-
 section#current {
   background-color: black;
   position: relative;
@@ -228,10 +228,6 @@ section#current {
       opacity: 0; }
     .volume__body:hover img:nth-child(2) {
       opacity: 1; }
-  .volume__footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center; }
   .volume img {
     position: absolute;
     top: 0;
@@ -241,6 +237,88 @@ section#current {
     opacity: 1; }
   .volume img:nth-child(2) {
     opacity: 0; }
+
+section#recommendation .item,
+section#LastPost .item {
+  transition: all .3s linear; }
+  section#recommendation .item .recommendation,
+  section#LastPost .item .recommendation {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    section#recommendation .item .recommendation__body,
+    section#LastPost .item .recommendation__body {
+      width: 250px;
+      height: 400px;
+      position: relative;
+      overflow: hidden; }
+      section#recommendation .item .recommendation__body::after,
+      section#LastPost .item .recommendation__body::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        height: 100%;
+        width: 0;
+        background-color: #45f3ff;
+        opacity: 0.4; }
+      section#recommendation .item .recommendation__body img,
+      section#LastPost .item .recommendation__body img {
+        transition: all 0.4s linear; }
+      section#recommendation .item .recommendation__body:hover img,
+      section#LastPost .item .recommendation__body:hover img {
+        transform: scale(1.1); }
+      section#recommendation .item .recommendation__body:hover::after,
+      section#LastPost .item .recommendation__body:hover::after {
+        width: 100%; }
+    section#recommendation .item .recommendation__footer a,
+    section#LastPost .item .recommendation__footer a {
+      color: #000;
+      transition: all 0.4s linear;
+      font-size: 20px;
+      text-align: center; }
+      section#recommendation .item .recommendation__footer a:hover,
+      section#LastPost .item .recommendation__footer a:hover {
+        text-decoration: underline;
+        color: #45f3ff; }
+
+section#similar .item .similar-comic {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  section#similar .item .similar-comic__body {
+    width: 250px;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+    display: block; }
+    section#similar .item .similar-comic__body:hover img {
+      transition: all 0.4s linear; }
+    section#similar .item .similar-comic__body:hover img:nth-child(1) {
+      opacity: 0 !important; }
+    section#similar .item .similar-comic__body:hover img:nth-child(2) {
+      opacity: 1 !important; }
+  section#similar .item .similar-comic__title {
+    text-align: center;
+    display: block;
+    color: #000;
+    transition: all 0.4s linear; }
+    section#similar .item .similar-comic__title:hover {
+      color: #45f3ff;
+      transform: scale(1.2); }
+  section#similar .item .similar-comic img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 0.4s linear; }
+  section#similar .item .similar-comic img:nth-child(1) {
+    opacity: 1 !important; }
+  section#similar .item .similar-comic img:nth-child(2) {
+    opacity: 0 !important; }
 
 .cube-container {
   width: 400px;
