@@ -13,7 +13,7 @@ ul, ol {
 a {
   text-decoration: none; }
 
-.cover__btn, .volume__btn, section#similar .item .similar-comic__btn {
+section#characters .cards .card .card-footer a, .cover__btn, .volume__btn, section#similar .item .similar-comic__btn, .cube-container .cube__btn, .toy-card__btn {
   text-align: center;
   position: relative;
   display: inline-block;
@@ -27,7 +27,7 @@ a {
   position: relative;
   left: 50%;
   transform: translateX(-50%); }
-  .cover__btn::after, .volume__btn::after, section#similar .item .similar-comic__btn::after {
+  section#characters .cards .card .card-footer a::after, .cover__btn::after, .volume__btn::after, section#similar .item .similar-comic__btn::after, .cube-container .cube__btn::after, .toy-card__btn::after {
     content: "";
     position: absolute;
     height: 100%;
@@ -38,10 +38,10 @@ a {
     background-color: black;
     z-index: -1;
     transition: width 0.4s linear; }
-  .cover__btn:hover, .volume__btn:hover, section#similar .item .similar-comic__btn:hover {
+  section#characters .cards .card .card-footer a:hover, .cover__btn:hover, .volume__btn:hover, section#similar .item .similar-comic__btn:hover, .cube-container .cube__btn:hover, .toy-card__btn:hover {
     color: #45f3ff;
     border: none; }
-    .cover__btn:hover::after, .volume__btn:hover::after, section#similar .item .similar-comic__btn:hover::after {
+    section#characters .cards .card .card-footer a:hover::after, .cover__btn:hover::after, .volume__btn:hover::after, section#similar .item .similar-comic__btn:hover::after, .cube-container .cube__btn:hover::after, .toy-card__btn:hover::after {
       width: 100%; }
 
 .comics-types {
@@ -60,7 +60,11 @@ a {
     margin: 0 .5rem; }
 
 section#characters {
-  background-color: #ebf7ff; }
+  background-color: #ebf7ff;
+  background: url(../img/background.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; }
   section#characters .heading {
     margin-bottom: 100px; }
   section#characters .cards .card {
@@ -96,21 +100,16 @@ section#characters {
       section#characters .cards .card .card-body p {
         text-align: center;
         line-height: 1.5;
-        font-size: 19px; }
+        font-size: 19px;
+        font-weight: 700; }
     section#characters .cards .card .card-footer {
       text-align: center;
       padding: 25px 0;
       display: flex;
-      justify-content: center;
       background-color: transparent;
       border: none; }
       section#characters .cards .card .card-footer a {
-        color: black;
-        font-size: 20px;
-        transition: all 0.2s linear;
-        display: flex;
-        padding: 5px 15px;
-        margin-top: 20px; }
+        color: #fff; }
   section#characters .cards .card:nth-of-type(1) {
     margin-left: 0; }
   section#characters .cards .card:nth-of-type(2) {
@@ -139,18 +138,57 @@ section#characters {
     section#characters .cards .card:hover h1 {
       color: #1dd1a1; }
     section#characters .cards .card:hover .card-footer a {
-      border-radius: 50rem;
-      border: 1px solid black;
-      color: white; }
-    section#characters .cards .card:hover .card-footer a:hover {
-      background-color: white;
-      color: #222f3e;
-      transform: scale(1.2);
-      box-shadow: 0 0 20px 10px #1dd1a1;
-      justify-content: center; }
+      color: #000; }
+      section#characters .cards .card:hover .card-footer a:hover {
+        color: #45f3ff; }
+
+.item .character-card {
+  width: 300px;
+  height: 400px;
+  background-color: #212121;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px; }
+  .item .character-card__body {
+    width: 100%;
+    height: 300px;
+    position: relative;
+    overflow: hidden; }
+    .item .character-card__body img {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transition: all 0.4s linear; }
+    .item .character-card__body img:nth-child(1) {
+      opacity: 1 !important;
+      filter: blur(0px);
+      transform: translateX(-50%) scaleX(1); }
+    .item .character-card__body img:nth-child(2) {
+      opacity: 0 !important;
+      filter: blur(10px);
+      transform: translateX(-100%) scaleX(2); }
+    .item .character-card__body:hover img:nth-child(1) {
+      opacity: 0 !important;
+      filter: blur(10px);
+      transform: translateX(-100%) scaleX(2); }
+    .item .character-card__body:hover img:nth-child(2) {
+      opacity: 1 !important;
+      filter: blur(0px);
+      transform: translateX(-50%) scaleX(1); }
+  .item .character-card__footer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100px;
+    padding: 25px; }
+    .item .character-card__footer img {
+      width: 75px !important;
+      height: 75px !important; }
 
 .cover {
-  width: 250px;
+  width: 225px;
   height: 400px;
   background: #0198dd;
   background-repeat: no-repeat;
@@ -162,7 +200,7 @@ section#characters {
   perspective: 1200px;
   transition: all 0.3s linear; }
   .cover > .comics {
-    width: 250px;
+    width: 100%;
     height: 100%;
     position: absolute;
     background-color: royalblue;
@@ -181,7 +219,7 @@ section#characters {
       transition: all 0.3s linear;
       opacity: 0; }
   .cover:hover {
-    transform: translate(5%, -50%) scale(1.1); }
+    transform: translate(-5%, -50%) scaleX(1.1); }
     .cover:hover > .comics {
       transform: rotateY(-180deg); }
       .cover:hover > .comics__back {
@@ -217,7 +255,7 @@ section#current {
   flex-direction: column;
   align-items: center; }
   .volume__body {
-    width: 250px;
+    width: 300px;
     height: 400px;
     position: relative;
     overflow: hidden;
@@ -352,6 +390,42 @@ section#similar .item .similar-comic {
         transform: rotateX(90deg) translateZ(200px); }
       .cube-container .cube__face--bottom {
         transform: rotateX(-90deg) translateZ(200px); }
+
+.toy-card__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 400px;
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 1rem;
+  overflow: hidden;
+  position: relative;
+  padding: 1rem;
+  background-color: blanchedalmond; }
+
+.toy-card__info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 100px;
+  width: 100%;
+  background-color: #fff;
+  display: none; }
+
+.toy-card__btn {
+  text-decoration: underline;
+  position: relative;
+  left: 0;
+  transform: translateX(0);
+  padding-top: 0;
+  padding-bottom: 0;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .toy-card__btn:hover {
+    text-decoration: none; }
 
 footer {
   background-color: #222f3e; }
